@@ -11,7 +11,7 @@ struct MumbleQuery {
   static MumbleQuery query(Address address) @safe {
     auto socket = new UdpSocket(address.addressFamily);
     auto id = uniform!ulong;
-    socket.setOption(SocketOptionLevel.SOCKET, SocketOption.RCVTIMEO, dur!"seconds"(15));
+    socket.setOption(SocketOptionLevel.SOCKET, SocketOption.RCVTIMEO, dur!"seconds"(1));
     auto tx = socket.sendTo(nativeToBigEndian!uint(0) ~ nativeToBigEndian(id), address);
     enforce(tx == 12, "failed to send query request");
 
