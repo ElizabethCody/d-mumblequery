@@ -12,6 +12,6 @@ struct Host {
     auto matches = matchFirst(str, HOST_PORT_REGEX);
     matches.popFront();
 
-    return Host(matches.front.strip("[]"), matches.back.length >= 1 ? matches.back.to!ushort() : defaultPort);
+    return Host(matches.front.strip("[ ]"), matches.back.length >= 1 ? matches.back.to!ushort() : defaultPort);
   }
 }
