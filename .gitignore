@@ -1,0 +1,15 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/mumblequery
+mumblequery.so
+mumblequery.dylib
+mumblequery.dll
+mumblequery.a
+mumblequery.lib
+mumblequery-test-*
+*.exe
+*.o
+*.obj
+*.lst

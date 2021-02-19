@@ -1,0 +1,5 @@
+name "mumblequery"
+description "Query a Mumble server."
+authors "Maxwell Cody <maxwell@cody.sh>"
+copyright "Copyright (C) 2021 - Maxwell Cody <maxwell@cody.sh>"
+license "The MIT License"
