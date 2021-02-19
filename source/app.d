@@ -15,8 +15,8 @@ outer:
         auto addresses = getAddress(host.hostname, host.port);
 
         foreach(address; addresses) {
-          try {
-            if(address.addressFamily == AddressFamily.INET || address.addressFamily == AddressFamily.INET6) {
+          if(address.addressFamily == AddressFamily.INET || address.addressFamily == AddressFamily.INET6) {
+            try {
               auto reply = MumbleQuery.query(address);
 
               writefln("Server: %s (%s)", arg, address.toString());
@@ -26,8 +26,8 @@ outer:
               writeln();
 
               continue outer;
-            }
-          } catch(Exception ignored) { }
+            } catch(Exception ignored) { }
+          }
         }
 
         writefln("Couldn't find Mumble server at %s.", arg);
