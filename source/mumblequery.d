@@ -22,6 +22,6 @@ struct MumbleQuery {
     auto slots = bigEndianToNative!uint(response[16..20]);
     auto bandwidth = bigEndianToNative!uint(response[20..24]);
 
-    return MumblePing(response[0..4], users, slots, bandwidth);
+    return MumbleQuery(response[0..4], users, slots, bandwidth);
   }
 }
