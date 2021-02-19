@@ -3,11 +3,11 @@ import std.random : uniform;
 import std.datetime : dur;
 import std.bitmanip : bigEndianToNative, nativeToBigEndian;
 
-struct MumblePing {
+struct MumbleQuery {
   immutable ubyte[4] serverVersion;
   immutable uint users, slots, bandwidth;
 
-  static MumblePing query(Address address) @safe {
+  static MumbleQuery query(Address address) @safe {
     auto socket = new UdpSocket(address.addressFamily);
     auto id = uniform!ulong;
     socket.setOption(SocketOptionLevel.SOCKET, SocketOption.RCVTIMEO, dur!"seconds"(15));
