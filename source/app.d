@@ -21,8 +21,8 @@ outer:
 
               writefln("Server: %s (%s)", arg, address.toString());
               writefln("Version: %d.%d.%d", reply.serverVersion[1], reply.serverVersion[2], reply.serverVersion[3]);
-              writefln("Users: %d/%d", reply.users, reply.slots);
-              writefln("Bandwidth: %d b/s", reply.bandwidth);
+              writefln("Users: %,d/%,d", reply.users, reply.slots);
+              writefln("Bandwidth: %,d b/s", reply.bandwidth);
               writeln();
 
               continue outer;
