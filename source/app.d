@@ -1,26 +1,18 @@
 import std.stdio;
 import std.socket;
-import std.conv : to;
-import std.regex : regex, matchFirst;
-import std.string : strip;
+import host;
 import mumblequery;
 
 void main(string[] args) @safe {
   if(args.length == 1) {
     writefln("Usage: %s [<host[:port]>...]", args[0]);
   } else {
-    auto hostex = regex(r"(\[[:a-fA-F0-9]+\]|(?:\d{1,3}\.){3}\d{1,3}|[-a-zA-Z0-9.]+)(?::(\d+))?");
-
 outer:
     foreach(arg; args[1..$]) {
-      auto matches = matchFirst(arg, hostex);
-      matches.popFront();
-
-      auto host = matches.front.strip("[]");
-      ushort port = matches.back.length >= 1 ? matches.back.to!ushort() : 64738;
+      auto host = Host.parse(arg, 64738);
 
       try {
-        auto addresses = host.getAddress(port);
+        auto addresses = getAddress(host.hostname, host.port);
 
         foreach(address; addresses) {
           try {
