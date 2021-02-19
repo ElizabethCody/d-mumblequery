@@ -7,12 +7,12 @@ void main(string[] args) @safe {
   if(args.length == 1) {
     writefln("Usage: %s [<host[:port]>...]", args[0]);
   } else {
-outer:
     foreach(arg; args[1..$]) {
       auto host = Host.parse(arg, 64738);
 
       try {
         auto addresses = getAddress(host.hostname, host.port);
+        bool found = false;
 
         foreach(address; addresses) {
           if(address.addressFamily == AddressFamily.INET || address.addressFamily == AddressFamily.INET6) {
@@ -25,17 +25,20 @@ outer:
               writefln("Bandwidth: %,d b/s", reply.bandwidth);
               writeln();
 
-              continue outer;
+              found = true;
+              break;
             } catch(Exception ignored) { }
           }
         }
 
-        writefln("Couldn't find Mumble server at %s.", arg);
+        if(!found) {
+          writefln("Couldn't find Mumble server at %s.", arg);
+          writeln();
+        }
       } catch(SocketException exception) {
         writefln("Failed to lookup hostname %s: %s.", arg, exception.msg);
+        writeln();
       }
-
-      writeln();
     }
   }
 }
