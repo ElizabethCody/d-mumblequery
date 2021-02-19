@@ -25,12 +25,12 @@ $ ./mumblequery hedonics.org extremelycorporate.ca
 Server: hedonics.org ([2600:3c00::f03c:92ff:feb3:ef2b]:64738)
 Version: 1.3.0
 Users: 5/500
-Bandwidth: 326000 b/s
+Bandwidth: 326,000 b/s
 
 Server: extremelycorporate.ca (174.95.206.94:64738)
 Version: 1.4.0
 Users: 6/50
-Bandwidth: 256000 b/s
+Bandwidth: 256,000 b/s
 
 ```
 
