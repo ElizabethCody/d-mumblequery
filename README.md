@@ -1,6 +1,6 @@
 # d-mumblequery
 
-**Query a Mumble server.**
+*Query a Mumble server.*
 
 A small D program to query Mumble servers using the
 [Mumble UDP query packet](https://wiki.mumble.info/wiki/Protocol#UDP_Ping_packet).
