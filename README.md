@@ -40,7 +40,7 @@ Currently, d-mumblequery cannot correctly resolve hosts relying on [SRV records]
 due to Phobos lacking the ability to lookup SRV records; consequently, a fix would require completely manual DNS lookups or an
 added dependency. To workaround, resolve SRV records before passing to the program.
 
-# Copyright
+## Copyright
 
 d-mumblequery is protected by copyright and is licensed under the MIT License, see `LICENSE.txt` for more details.
 
